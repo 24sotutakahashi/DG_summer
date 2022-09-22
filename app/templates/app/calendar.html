@@ -1,0 +1,343 @@
+{% extends "app/base.html" %} {% block content %}
+{% load static %}
+<!--mathfiltersを使うために必要-->
+{% load mathfilters %}
+
+
+<div class="text-center my-5">
+  <div class="row">
+    <div class="col-md-6 text-center calendar">
+        <img src="{{ staff_data.user.image.url }}" class="img-fluid" alt="" />
+        {% if staff_data.user.email == "bbb@bbb.com" %}
+        <img src="https://images.miil.me/j/a567256e-8cfc-11e8-97b1-0676d866592c.orig.jpg=s400" class="img-fluid" alt="" />
+        <div class="w-100"></div>
+        <img src="https://i.ytimg.com/vi/OI820MVCRy8/0.jpg" class="img-fluid" alt="" />
+        <img src="https://tblg.k-img.com/restaurant/images/Rvw/74045/640x640_rect_74045374.jpg" class="img-fluid" alt="" />
+
+        {% elif  staff_data.user.email == "PetitParc@aa.com"%}
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/26889309.jpg" alt="">
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/26889305.jpg" alt="">
+        <img src="https://image-loconavi.tokubai.co.jp/h=688,w=1372,a=0/uploads/local/image/image/29331/56ed9cbb-29dd-4d77-a77f-7325c703233a.jpeg" alt="">
+
+        {% elif  staff_data.user.email == "siphonycoffee@aa.com"%}
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_ebisu/restaurant/100001512708/archive/1636664-5e97bf5700f79-l.jpeg" alt="">
+        <img src="https://pbs.twimg.com/media/FAutc7pVkAEmbln?format=jpg&name=large" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/26248873.jpg" alt="">
+
+        {% elif  staff_data.user.email == "VANNIER@aa.com"%}
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/2883082.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/9633663.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/9633674.jpg" alt="">
+
+        {% elif  staff_data.user.email == "dotor_titose@aa.com"%}
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/24178632.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/24178630.jpg" alt="">
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/7961811.jpg" alt="">
+
+        {% elif  staff_data.user.email == "NanbanCha@aa.com"%}
+        <img src="https://s3-ap-northeast-1.amazonaws.com/owl-eat-drink/wp-content/uploads/2021/10/23213558/%E5%8D%97%E8%9B%AE%E8%8C%B6%E9%A4%A8.jpg" alt="">
+        <img src="http://haraheri-tennki.cocolog-nifty.com/photos/uncategorized/nanban_ins01.jpg" alt="">
+        <img src="http://haraheri-tennki.cocolog-nifty.com/photos/uncategorized/menu01_2.jpg" alt="">
+
+        {% elif  staff_data.user.email == "Dongri@aa.com"%}
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/13267950.jpg" alt="">
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/29950777.jpg" alt="">
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/13267928.jpg" alt="">
+
+        {% elif  staff_data.user.email == "CoffeeTei@aa.com"%}
+        <img src="https://www.setagaya-joho.com/assets_c/2013/01/minamikarasuyama51509%20cofeetei%231-thumb-448x336-3064.jpg" alt="">
+        <img src="https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/25912828.jpg" alt="">
+        <img src="https://blog-imgs-132.fc2.com/h/u/w/huwatorovajiina/20200112133229bad.jpg" alt="">
+
+        {% elif  staff_data.user.email == "Copade@aa.com"%}
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/14487069.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/23352918.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/28613613.jpg" alt="">
+
+        {% elif  staff_data.user.email == "Flamewood@aa.com"%}
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/7461717.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/7461723.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/7461722.jpg" alt="">
+
+        {% elif  staff_data.user.email == "Harmony@aa.com"%}
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/12783159.jpg" alt="">
+        <img src="https://ximg.retty.me/resize/s600x600/q80/dal/-/retty/img_repo/l/01/12783164.jpg" alt="">
+        <img src="https://tblg.k-img.com/restaurant/images/Rvw/57795/640x640_rect_57795024.jpg" alt="">
+
+        {% elif  staff_data.user.email == "dotor_fuchu@aa.com"%}
+        <img src="https://obs.line-scdn.net/0h5AryYrWFam5PAEN_FIQVOXFSagE8bHUmKzp1Xj4eTCIUXio_cG46cwt2NFY2Ny44e2FgCThTN1g3Yi8/f750_528_60_sharpen" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSswhM439PDiiPtpHADwkPSNh0Pl-_IvRkXdQ&usqp=CAU" alt="">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/d8/65/39/dsc-1085-largejpg.jpg" alt="">
+
+        {% endif %}
+    </div>
+  <div class="col-md-6 mb-5 text-center">
+    <div class="card">
+      <div class="card-body px-2 py-1">
+        <div class="p-4 text-left">
+          <h3>
+            {{ staff_data.user.first_name }}
+          </h3>
+          <h3> 
+              {% if staff_data.user.email == "bbb@bbb.com" %}
+              <a href="https://www.doutor.co.jp/dcs/">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "PetitParc@aa.com"%}
+              <a href="https://www.doutor.co.jp/dcs/">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "siphonycoffee@aa.com"%}
+              <a href="https://siphonycoffee.owst.jp/">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "VANNIER@aa.com"%}
+              <a href="https://www.doutor.co.jp/dcs/">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "dotor_titose@aa.com"%}
+              <a href="https://www.doutor.co.jp/dcs/">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "NanbanCha@aa.com"%}
+              <a href="">まだHPがありません</a>
+            
+              {% elif  staff_data.user.email == "Dongri@aa.com"%}
+              <a href="https://www.setabun.or.jp/outline/donguri.html">HPはこちら</a>
+
+              {% elif  staff_data.user.email == "CoffeeTei@aa.com"%}
+              <a href="">まだHPがありません</a>
+            
+              {% elif  staff_data.user.email == "Copade@aa.com"%}
+              <a href="https://copadecafe.jimdofree.com/">HPはこちら</a>
+            
+              {% elif  staff_data.user.email == "Flamewood@aa.com"%}
+              <a href="">まだHPがありません</a>
+            
+              {% elif  staff_data.user.email == "Harmony@aa.com"%}
+              <a href="">まだHPがありません</a>
+            
+              {% elif  staff_data.user.email == "dotor_fuchu@aa.com"%}
+              <a href="https://www.doutor.co.jp/dcs/">HPはこちら</a>
+
+              {% endif %}
+              
+          </h3>
+          <hr />
+          <p>地域：{{ staff_data.store.name }}</p>
+          <p>{{ staff_data.user.description|linebreaksbr }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="w-100"></div>
+  </div>
+
+
+  <div class="custom">
+
+  {% if staff_data.user.email == "bbb@bbb.com" %}
+  <div class="row"> 
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6569362675873!2d139.58274141525823!3d35.66082308019902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1bc8e14d5b9%3A0xb3fd5d7eeb5e44bf!2z44OJ44OI44O844Or44Kz44O844OS44O844K344On44OD44OXIOS6rOeOi-S7meW3neW6lw!5e0!3m2!1sja!2sjp!4v1661320441301!5m2!1sja!2sjp" width="525" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <a class="twitter-timeline" data-width="525" data-height="550" href="https://twitter.com/DoutorCoffee_co?ref_src=twsrc%5Etfw" style="text-align:center">Tweet</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   </div>
+ 
+  
+  {% elif  staff_data.user.email == "PetitParc@aa.com"%}
+   <div class="row">
+    <div class="col-md-12">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.657691362093!2d139.58106711525826!3d35.66080448019902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1c812fda397%3A0xdf78f4ddbf7a165d!2sPetit%20Parc!5e0!3m2!1sja!2sjp!4v1661393675910!5m2!1sja!2sjp" width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "siphonycoffee@aa.com"%}
+  <div class="row">
+    <div class="col-md-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5475471409936!2d139.58166375138407!3d35.663517538452346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f19e6853142b%3A0xcf21bc7460ca213!2ssiphony%20coffee!5e0!3m2!1sja!2sjp!4v1661393713656!5m2!1sja!2sjp" wwidth="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "VANNIER@aa.com"%}
+  <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6759994656195!2d139.58145512695313!3d35.66035350000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1bcc1f1b71b%3A0xfa1a3642ae2849e7!2sCafe%20VANNIER!5e0!3m2!1sja!2sjp!4v1661394205413!5m2!1sja!2sjp" width="525" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <a class="twitter-timeline" width="525" height="550" href="https://twitter.com/cafe_vannier?ref_src=twsrc%5Etfw" style="text-align:center">Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+  
+  {% elif  staff_data.user.email == "dotor_titose@aa.com"%}
+  <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.397307299373!2d139.60012735138397!3d35.66721793824936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f18f0c92a8bf%3A0x688802802a2d2b98!2z44OJ44OI44O844Or44Kz44O844OS44O844K344On44OD44OXIOWNg-ats-eDj-WxseWNl-WPo-W6lw!5e0!3m2!1sja!2sjp!4v1661394254147!5m2!1sja!2sjp" width="525" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <a class="twitter-timeline" width="525" height="550" href="https://twitter.com/DoutorCoffee_co?ref_src=twsrc%5Etfw" style="text-align:center">Tweet</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+  
+  {% elif  staff_data.user.email == "NanbanCha@aa.com"%}
+  <div class="row">
+    <div class="col-md-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3786948720144!2d139.59988925138381!3d35.66767633822445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f18f06187095%3A0x83b2afd2f3e32dc9!2z5Y2X6Juu6Iy26aSo!5e0!3m2!1sja!2sjp!4v1661394413804!5m2!1sja!2sjp" width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "Dongri@aa.com"%}
+  <div class="row">
+    <div class="col-md-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3969767134263!2d139.60666581525845!3d35.66722608019756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f3791923c595%3A0x2e5d0f68fd14ddca!2z44Gp44KT44GQ44KK!5e0!3m2!1sja!2sjp!4v1661394704493!5m2!1sja!2sjp" width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "CoffeeTei@aa.com"%}
+  <div class="row">
+    <div class="col-md-12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3705457792976!2d139.59939875147126!3d35.66787703821322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f18fab9c9955%3A0x9094df063bf7e17d!2z54-I55Cy5Lqt!5e0!3m2!1sja!2sjp!4v1661394851950!5m2!1sja!2sjp" width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+</div>
+
+  {% elif  staff_data.user.email == "Copade@aa.com"%}
+  <div class="row"> 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.161043192893!2d139.47678595147138!3d35.67303643793021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e4faf0edd263%3A0x24e87346bde0184b!2z44Kz44OR44OH44Kr44OV44Kn77yIQ29wYWRlQ2FmZe-8iQ!5e0!3m2!1sja!2sjp!4v1661411348097!5m2!1sja!2sjp" width="545" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     <a class="twitter-timeline" data-width="550" data-height="545" href="https://twitter.com/copadecafe?ref_src=twsrc%5Etfw" style="text-align:center">Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+ 
+  {% elif  staff_data.user.email == "Flamewood@aa.com"%}
+   <div class="row">
+    <div class="col-md-12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.709017060058!2d139.4861776514714!3d35.68416623732009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e5000abf9103%3A0x24b639323aaef670!2z44OV44Os44O844Og44Km44OD44OJ44Kr44OV44Kn!5e0!3m2!1sja!2sjp!4v1661395216268!5m2!1sja!2sjp" width="525" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "Harmony@aa.com"%}
+  <div class="row">
+    <div class="col-md-12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2904941568277!2d139.47661665147103!3d35.669848538105185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e4e51659aaab%3A0x25dac05aab50e1c3!2z5b6h5LyR44G_5Yem!5e0!3m2!1sja!2sjp!4v1661395350908!5m2!1sja!2sjp" width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+  
+  {% elif  staff_data.user.email == "dotor_fuchu@aa.com"%}
+  <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.290141847942!2d139.47660592256452!3d35.66985721450889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e4e4b4bac87d%3A0x47143abcf4c5eb94!2z44OJ44OI44O844Or44Kz44O844OS44O844K344On44OD44OXIOS6rOeOi-W6nOS4reW6lw!5e0!3m2!1sja!2sjp!4v1661395406206!5m2!1sja!2sjp" width="525" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <a class="twitter-timeline" width="525" height="550" href="https://twitter.com/DoutorCoffee_co?ref_src=twsrc%5Etfw" style="text-align:center">Tweet</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+  {% endif %}
+  </div>
+  <div class="mb-3">
+    <h1>予約カレンダー</h1>
+    <p>{{ start_day }}～{{ end_day }}</p>
+  </div>
+
+  <div class="d-flex mb-2">
+    <div class="mx-3 mr-auto">
+      <a
+        class="btn btn-warning"
+        href="{% url 'calendar' staff_data.pk before.year before.month before.day %}"
+        >前週</a
+      >
+    </div>
+    <div class="mx-3">
+      <a
+        class="btn btn-warning"
+        href="{% url 'calendar' staff_data.pk next.year next.month next.day %}"
+        >次週</a
+      >
+    </div>
+  </div>
+  <div class="">
+    <table class="table table-bordered bg-light">
+      <thead class="thead-light">
+        <tr>
+          <th></th>
+          {% for day in days %} {% if day.weekday == 5 %}
+          <th scope="col" class="text-primary">{{ day | date:"d(D)" }}</th>
+          {% elif day.weekday == 6 %}
+          <th scope="col" class="text-danger">{{ day | date:"d(D)" }}</th>
+          {% else %}
+          <th scope="col">{{ day | date:"d(D)" }}</th>
+          {% endif %} {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for hour, schedules in calendar.items %}
+        <tr>
+          <td scope="row">{{ hour }}:00</td>
+          {% for datetime, book in schedules.items %}
+          <td>
+            {% if datetime <= today %} - 
+            {% elif book|length < 20 and staff_data.user.email == "bbb@bbb.com" %}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+              <i class="far fa-circle text-info"></i>
+              {{ book|length|sub:20|mul:-1 }}
+            </a>
+            {% elif book|length < 6 and staff_data.user.email == "PetitParc@aa.com" %}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:6|mul:-1 }}
+              </a>
+
+            {% elif book|length < 4 and staff_data.user.email == "siphonycoffee@aa.com" %}
+              <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                  <i class="far fa-circle text-info"></i>
+                  {{ book|length|sub:4|mul:-1 }}
+                </a>
+            
+            {% elif  book|length < 7 and staff_data.user.email == "VANNIER@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:7|mul:-1 }}
+              </a>
+            {% elif  book|length < 30 and staff_data.user.email == "dotor_titose@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:30|mul:-1 }}
+              </a>
+            {% elif  book|length < 7 and staff_data.user.email == "NanbanCha@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:7|mul:-1 }}
+              </a>
+            {% elif  book|length < 20 and staff_data.user.email == "Dongri@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:20|mul:-1 }}
+              </a>
+            {% elif  book|length < 10 and staff_data.user.email == "CoffeeTei@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:10|mul:-1 }}
+              </a>
+            {% elif  book|length < 10 and staff_data.user.email == "Copade@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:10|mul:-1 }}
+              </a>
+            {% elif  book|length < 0 and staff_data.user.email == "Flamewood@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:0|mul:-1 }}
+              </a>
+            {% elif  book|length < 15 and staff_data.user.email == "Harmony@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:15|mul:-1 }}
+              </a>
+            {% elif  book|length < 30 and staff_data.user.email == "dotor_fuchu@aa.com"%}
+            <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
+                <i class="far fa-circle text-info"></i>
+                {{ book|length|sub:30|mul:-1 }}
+              </a>
+
+            {% else %}
+            <i class="fas fa-times text-danger"></i>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

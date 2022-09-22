@@ -1,0 +1,50 @@
+{% extends "app/base.html" %} {% block content %}
+
+<div class="card card-profile my-5 mx-auto">
+  <div class="card-body">
+    <h5 class="card-title text-center">プロフィール</h5>
+    <table class="profile_table mb-4">
+      <tbody>
+        <tr>
+            <th class="header">プロフィール画像</th>
+            <td class="data">
+              {% if user_data.image %}
+              <img src="{{ user_data.image.url }}" width="100px" />
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th class="header">名前</th>
+            <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
+          </tr>
+          <tr>
+            <th class="header">メールアドレス</th>
+            <td class="data">{{ user_data.email }}</td>
+            {% if user_data.email == "aaaaa@aa.com" %}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6569362675873!2d139.58274141525823!3d35.66082308019902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1bc8e14d5b9%3A0xb3fd5d7eeb5e44bf!2z44OJ44OI44O844Or44Kz44O844OS44O844K344On44OD44OXIOS6rOeOi-S7meW3neW6lw!5e0!3m2!1sja!2sjp!4v1661320441301!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            {% endif %}
+          </tr>
+          <tr>
+            <th class="header">自己紹介</th>
+            <td class="data">{{ user_data.description }}</td>
+        </tr>
+
+        <tr>
+          <th class="header">名前</th>
+          <td class="data">  
+            {{ user_data.first_name }} {{ user_data.last_name }}
+          </td>
+        </tr>
+        <tr>
+          <th class="header">メールアドレス</th>
+          <td class="data">{{ user_data.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button mx-auto">
+      <a href="{% url 'profile_edit' %}" class="btn btn-lg btn-warning btn-block">編集する</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
