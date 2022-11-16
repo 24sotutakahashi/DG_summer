@@ -8,8 +8,11 @@
 ▼使用した言語：
 
 Python(主にDjango)
+
 HTML
+
 CSS
+
 Javascript
 
 ▼始めた理由：
