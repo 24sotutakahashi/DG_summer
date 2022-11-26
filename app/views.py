@@ -25,19 +25,23 @@ class StoreView(View):
             'store_data': store_data,
         })
 
+
 class StaffView(View):
     def get(self, request, *args, **kwargs):
         store_data = get_object_or_404(Store, id=self.kwargs['pk'])
-        staff_data = Staff.objects.filter(store=store_data).select_related('user')
+        staff_data = Staff.objects.filter(
+            store=store_data).select_related('user')
 
         return render(request, 'app/staff.html', {
             'store_data': store_data,
             'staff_data': staff_data,
         })
 
+
 class CalendarView(View):
     def get(self, request, *args, **kwargs):
-        staff_data = Staff.objects.filter(id=self.kwargs['pk']).select_related('user').select_related('store')[0]
+        staff_data = Staff.objects.filter(id=self.kwargs['pk']).select_related(
+            'user').select_related('store')[0]
         today = date.today()
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
@@ -59,9 +63,12 @@ class CalendarView(View):
             for day in days:
                 row[day] = []
             calendar[hour] = row
-        start_time = make_aware(datetime.combine(start_day, time(hour=7, minute=0, second=0)))
-        end_time = make_aware(datetime.combine(end_day, time(hour=20, minute=0, second=0)))
-        booking_data = Booking.objects.filter(staff=staff_data).exclude(Q(start__gt=end_time) | Q(end__lt=start_time))
+        start_time = make_aware(datetime.combine(
+            start_day, time(hour=7, minute=0, second=0)))
+        end_time = make_aware(datetime.combine(
+            end_day, time(hour=20, minute=0, second=0)))
+        booking_data = Booking.objects.filter(staff=staff_data).exclude(
+            Q(start__gt=end_time) | Q(end__lt=start_time))
         for booking in booking_data:
             local_time = localtime(booking.start)
             booking_date = local_time.date()
@@ -83,7 +90,8 @@ class CalendarView(View):
 
 class BookingView(View):
     def get(self, request, *args, **kwargs):
-        staff_data = Staff.objects.filter(id=self.kwargs['pk']).select_related('user').select_related('store')[0]
+        staff_data = Staff.objects.filter(id=self.kwargs['pk']).select_related(
+            'user').select_related('store')[0]
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
         day = self.kwargs.get('day')
@@ -105,11 +113,14 @@ class BookingView(View):
         month = self.kwargs.get('month')
         day = self.kwargs.get('day')
         hour = self.kwargs.get('hour')
-        start_time = make_aware(datetime(year=year, month=month, day=day, hour=hour))
-        end_time = make_aware(datetime(year=year, month=month, day=day, hour=hour + 1))
-        booking_data = Booking.objects.filter(staff=staff_data, start=start_time)
+        start_time = make_aware(
+            datetime(year=year, month=month, day=day, hour=hour))
+        end_time = make_aware(
+            datetime(year=year, month=month, day=day, hour=hour + 1))
+        booking_data = Booking.objects.filter(
+            staff=staff_data, start=start_time)
         form = BookingForm(request.POST or None)
-        #一旦１００で
+        # 一旦１００で
         if booking_data.count() >= 100:
             form.add_error(None, '既に予約があります。\n別の日時で予約をお願いします。')
         else:
@@ -123,7 +134,7 @@ class BookingView(View):
                 booking.tel = form.cleaned_data['tel']
                 booking.remarks = form.cleaned_data['remarks']
                 booking.save()
-                return redirect('thanks') # 予約完了を押したら、thanks.htmlへ
+                return redirect('thanks')  # 予約完了を押したら、thanks.htmlへ
 
         return render(request, 'app/booking.html', {
             'staff_data': staff_data,
@@ -138,12 +149,15 @@ class BookingView(View):
 class SlashView(TemplateView):
     template_name = 'app/slash.html'
 
+
 class ThanksView(TemplateView):
     template_name = 'app/thanks.html'
 
+
 class MyPageView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        staff_data = Staff.objects.filter(id=request.user.id).select_related('user').select_related('store')[0]
+        staff_data = Staff.objects.filter(id=request.user.id).select_related(
+            'user').select_related('store')[0]
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
         day = self.kwargs.get('day')
@@ -159,9 +173,12 @@ class MyPageView(LoginRequiredMixin, View):
             for day_ in days:
                 row[day_] = ""
             calendar[hour] = row
-        start_time = make_aware(datetime.combine(start_day, time(hour=7, minute=0, second=0)))
-        end_time = make_aware(datetime.combine(end_day, time(hour=20, minute=0, second=0)))
-        booking_data = Booking.objects.filter(staff=staff_data).exclude(Q(start__gt=end_time) | Q(end__lt=start_time))
+        start_time = make_aware(datetime.combine(
+            start_day, time(hour=7, minute=0, second=0)))
+        end_time = make_aware(datetime.combine(
+            end_day, time(hour=20, minute=0, second=0)))
+        booking_data = Booking.objects.filter(staff=staff_data).exclude(
+            Q(start__gt=end_time) | Q(end__lt=start_time))
         for booking in booking_data:
             local_time = localtime(booking.start)
             booking_date = local_time.date()
@@ -182,12 +199,16 @@ class MyPageView(LoginRequiredMixin, View):
             'month': month,
             'day': day,
         })
-##ボタンをクリックした時のみに動作   
+# ボタンをクリックした時のみに動作
+
+
 @require_POST
 def Holiday(request, year, month, day, hour):
     staff_data = Staff.objects.get(id=request.user.id)
-    start_time = make_aware(datetime(year=year, month=month, day=day, hour=hour))
-    end_time = make_aware(datetime(year=year, month=month, day=day, hour=hour + 1))
+    start_time = make_aware(
+        datetime(year=year, month=month, day=day, hour=hour))
+    end_time = make_aware(
+        datetime(year=year, month=month, day=day, hour=hour + 1))
 
     # 休日追加
     Booking.objects.create(
@@ -203,9 +224,11 @@ def Holiday(request, year, month, day, hour):
         start_date = start_date - timedelta(days=weekday + 1)
     return redirect('mypage', year=start_date.year, month=start_date.month, day=start_date.day)
 
+
 @require_POST
 def Delete(request, year, month, day, hour):
-    start_time = make_aware(datetime(year=year, month=month, day=day, hour=hour))
+    start_time = make_aware(
+        datetime(year=year, month=month, day=day, hour=hour))
     booking_data = Booking.objects.filter(start=start_time)
 
     # 予約削除
