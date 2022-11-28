@@ -57,7 +57,7 @@ class CalendarView(View):
         end_day = days[-1]
 
         calendar = {}
-        # 10時～20時
+        # 7時～21時
         for hour in range(7, 21):
             row = {}
             for day in days:
@@ -75,7 +75,6 @@ class CalendarView(View):
             booking_hour = local_time.hour
             if (booking_hour in calendar) and (booking_date in calendar[booking_hour]):
                 calendar[booking_hour][booking_date].append(booking)
-
         return render(request, 'app/calendar.html', {
             'staff_data': staff_data,
             'calendar': calendar,
@@ -146,10 +145,6 @@ class BookingView(View):
         })
 
 
-class SlashView(TemplateView):
-    template_name = 'app/slash.html'
-
-
 class ThanksView(TemplateView):
     template_name = 'app/thanks.html'
 
@@ -167,7 +162,7 @@ class MyPageView(LoginRequiredMixin, View):
         end_day = days[-1]
 
         calendar = {}
-        # 10時～20時
+        # 7時～21時
         for hour in range(7, 21):
             row = {}
             for day_ in days:
@@ -199,9 +194,9 @@ class MyPageView(LoginRequiredMixin, View):
             'month': month,
             'day': day,
         })
+
+
 # ボタンをクリックした時のみに動作
-
-
 @require_POST
 def Holiday(request, year, month, day, hour):
     staff_data = Staff.objects.get(id=request.user.id)
@@ -210,12 +205,13 @@ def Holiday(request, year, month, day, hour):
     end_time = make_aware(
         datetime(year=year, month=month, day=day, hour=hour + 1))
 
-    # 休日追加
-    Booking.objects.create(
-        staff=staff_data,
-        start=start_time,
-        end=end_time,
-    )
+    # 休日追加(30回予約作成を繰り返すことで、全てのお店の最大席数以上のbookingを創っている)
+    for i in range(30):
+        Booking.objects.create(
+            staff=staff_data,
+            start=start_time,
+            end=end_time,
+        )
 
     start_date = date(year=year, month=month, day=day)
     weekday = start_date.weekday()
